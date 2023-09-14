@@ -21,11 +21,16 @@ export default {
             searchbarText
         )
         .then((response) => {
-          console.log(response.data.results[0].original_title);
-          console.log(response.data.results[0].title);
-          console.log(response.data.results[0].original_language);
-          console.log(response.data.results[0].vote_average);
-          // store.movies= ...
+          let searchLength = response.data.results.length;
+          for (let i = 1; i < searchLength; i++) {
+            store.movies = {
+              originalTitle: response.data.results[i].original_title,
+              title: response.data.results[i].title,
+              lang: response.data.results[i].original_language,
+              vote: response.data.results[i].vote_average,
+            };
+            console.log(store.movies);
+          }
         });
     },
   },
