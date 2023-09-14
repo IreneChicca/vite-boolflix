@@ -1,7 +1,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      searchbarText: "",
+    };
   },
 
   emits: ["search-btn-click"],
@@ -16,12 +18,13 @@ export default {
         placeholder="Scrivi qualcosa.."
         aria-label="Recipient's username"
         aria-describedby="button-addon2"
+        v-model="searchbarText"
       />
       <button
         class="btn btn-outline-secondary"
         type="button"
         id="button-addon2"
-        @click="$emit('search-btn-click')"
+        @click="$emit('search-btn-click', searchbarText)"
       >
         Cerca
       </button>
