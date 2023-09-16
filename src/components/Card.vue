@@ -2,11 +2,11 @@
 export default {
   data() {
     return {
-      languages: ["it", "en", "de"],
+      languages: ["it", "en", "de", "fr", "hu", "ja"],
     };
   },
 
-  props: { movie: Object },
+  props: { info: Object },
 
   methods: {
     buildLangPath(lang) {
@@ -20,25 +20,25 @@ export default {
 };
 </script>
 <template>
-  <div class="card p-2">
+  <div class="card p-2 mb-3">
     <h5>
-      {{ movie.originalTitle }}
+      {{ info.title }}
     </h5>
     <p>
-      {{ movie.title }}
+      {{ info.originalTitle }}
     </p>
 
     <img
-      v-if="languages.includes(movie.lang)"
-      :src="buildLangPath(movie.lang)"
+      v-if="languages.includes(info.lang)"
+      :src="buildLangPath(info.lang)"
       class="flag"
     />
     <img v-else src="../assets/img/xx.png" alt="" class="flag" />
     <p>
-      {{ movie.vote }}
+      {{ info.vote }}
     </p>
     <p>
-      {{ movie.desc }}
+      {{ info.desc }}
     </p>
   </div>
 </template>

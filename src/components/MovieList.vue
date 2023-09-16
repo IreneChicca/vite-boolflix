@@ -14,7 +14,8 @@ export default {
 </script>
 <template>
   <div class="p-5">
-    <Card v-for="(movie, i) in store.movies" :movie="store.movies[i]" />
+    <Card v-for="(movie, i) in store.movies" :info="store.movies[i]" />
+    <Card v-for="(serie, i) in store.series" :info="store.series[i]" />
   </div>
 </template>
 <style></style>
