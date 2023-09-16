@@ -69,6 +69,10 @@ export default {
 </script>
 
 <template>
+  <font-awesome-icon icon="fa-solid fa-star" />
+
+  <!-- ERRORE ******** NON RIESCO AD IMPORTARE LA SECONDA ICONA REGULAR -->
+  <!-- <font-awesome-icon icon="fa-regular fa-star" /> -->
   <AppHeader @search-btn-click="fetchMovies" />
   <AppMain />
 </template>

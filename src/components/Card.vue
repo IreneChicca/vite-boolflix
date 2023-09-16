@@ -35,7 +35,7 @@ export default {
     />
     <img v-else src="../assets/img/xx.png" alt="" class="flag" />
     <p>
-      {{ info.vote }}
+      {{ parseInt(info.vote) / 2 }}
     </p>
     <p>
       {{ info.desc }}
