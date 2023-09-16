@@ -1,11 +1,13 @@
 <script>
+import AppMovie from "./MovieList.vue";
 export default {
   data() {
     return {};
   },
+  components: { AppMovie },
 };
 </script>
 <template>
-  <h1>prova 2</h1>
+  <AppMovie />
 </template>
 <style></style>
