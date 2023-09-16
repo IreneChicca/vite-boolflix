@@ -5,6 +5,16 @@ export default {
   },
 
   props: { movie: Object },
+
+  methods: {
+    buildLangPath(lang) {
+      const langUrl = new URL(
+        "../assets/img/" + lang + ".png",
+        import.meta.url
+      );
+      return langUrl.href;
+    },
+  },
 };
 </script>
 <template>
@@ -15,9 +25,8 @@ export default {
     <p>
       {{ movie.title }}
     </p>
-    <p>
-      {{ movie.lang }}
-    </p>
+
+    <img :src="buildLangPath(movie.lang)" class="w-25" />
     <p>
       {{ movie.vote }}
     </p>
