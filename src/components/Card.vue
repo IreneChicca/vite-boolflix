@@ -1,7 +1,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      languages: ["it", "en", "de"],
+    };
   },
 
   props: { movie: Object },
@@ -26,7 +28,12 @@ export default {
       {{ movie.title }}
     </p>
 
-    <img :src="buildLangPath(movie.lang)" class="w-25" />
+    <img
+      v-if="languages.includes(movie.lang)"
+      :src="buildLangPath(movie.lang)"
+      class="flag"
+    />
+    <img v-else src="../assets/img/xx.png" alt="" class="flag" />
     <p>
       {{ movie.vote }}
     </p>
@@ -35,4 +42,8 @@ export default {
     </p>
   </div>
 </template>
-<style></style>
+<style scoped>
+.flag {
+  width: 40px;
+}
+</style>
