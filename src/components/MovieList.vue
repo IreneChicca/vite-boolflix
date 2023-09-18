@@ -13,7 +13,9 @@ export default {
 };
 </script>
 <template>
-  <div class="d-flex flex-wrap justify-content-center movie-list">
+  <div
+    class="d-flex flex-wrap justify-content-center movie-list container-fluid"
+  >
     <Card v-for="(movie, i) in store.movies" :info="store.movies[i]" />
     <Card v-for="(serie, i) in store.series" :info="store.series[i]" />
   </div>

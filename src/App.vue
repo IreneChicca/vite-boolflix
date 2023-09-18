@@ -58,8 +58,6 @@ export default {
             });
           }
         });
-      console.log(store.movies);
-      console.log(store.series);
     },
   },
 };

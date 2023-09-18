@@ -24,7 +24,7 @@ export default {
 
     // buildImgPath() {
     //   const imgUrl = new URL(
-    //     "../assets/img/" + lang + ".png",
+    //     "https://image.tmdb.org/t/p/w780/" + this.info.img,
     //     import.meta.url
     //   );
     // },
@@ -32,7 +32,7 @@ export default {
 };
 </script>
 <template>
-  <div class="ccard card m-3">
+  <div class="ccard card m-2">
     <div class="card-back text-center p-4">
       <h5>
         {{ info.title }}
