@@ -32,8 +32,8 @@ export default {
 };
 </script>
 <template>
-  <div class="ccard card">
-    <div class="card-back">
+  <div class="ccard card m-3">
+    <div class="card-back text-center p-4">
       <h5>
         {{ info.title }}
       </h5>
@@ -47,9 +47,7 @@ export default {
         class="flag"
       />
       <img v-else src="../assets/img/xx.png" alt="" class="flag" />
-      <p>
-        {{ Math.ceil(info.vote) / 2 }}
-      </p>
+      <p>Vote: {{ Math.ceil(info.vote) / 2 }}</p>
       <p><font-awesome-icon :icon="starClass(n)" v-for="n in 5" /></p>
 
       <p>
@@ -70,7 +68,8 @@ export default {
   width: 300px;
   height: 450px;
   perspective: 1000px;
-  border: 1px solid red;
+  background-color: transparent;
+
   position: relative;
 
   &:hover .card-front {
@@ -88,16 +87,20 @@ export default {
   height: 100%;
   backface-visibility: hidden;
   transition: transform 0.9s ease;
+  border-radius: 2%;
 }
 
 .card-front {
   img {
     width: 100%;
     height: auto;
+    border-radius: 2%;
   }
 }
 
 .card-back {
   transform: rotateY(180deg);
+  overflow-y: scroll;
+  background-color: white;
 }
 </style>

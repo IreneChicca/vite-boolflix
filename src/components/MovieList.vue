@@ -13,9 +13,13 @@ export default {
 };
 </script>
 <template>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap justify-content-center movie-list">
     <Card v-for="(movie, i) in store.movies" :info="store.movies[i]" />
     <Card v-for="(serie, i) in store.series" :info="store.series[i]" />
   </div>
 </template>
-<style></style>
+<style scoped>
+.movie-list {
+  background-color: #434343;
+}
+</style>
