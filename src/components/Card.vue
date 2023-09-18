@@ -16,6 +16,18 @@ export default {
       );
       return langUrl.href;
     },
+    starClass(n) {
+      return n <= Math.ceil(this.info.vote) / 2
+        ? "fa-solid fa-star"
+        : "fa-regular fa-star";
+    },
+
+    // buildImgPath() {
+    //   const imgUrl = new URL(
+    //     "../assets/img/" + lang + ".png",
+    //     import.meta.url
+    //   );
+    // },
   },
 };
 </script>
@@ -35,8 +47,14 @@ export default {
     />
     <img v-else src="../assets/img/xx.png" alt="" class="flag" />
     <p>
-      {{ parseInt(info.vote) / 2 }}
+      {{ Math.ceil(info.vote) / 2 }}
     </p>
+    <p><font-awesome-icon :icon="starClass(n)" v-for="n in 5" /></p>
+    <img
+      :src="'https://image.tmdb.org/t/p/w342/' + info.img"
+      alt=""
+      class="w-25"
+    />
     <p>
       {{ info.desc }}
     </p>
