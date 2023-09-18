@@ -32,36 +32,72 @@ export default {
 };
 </script>
 <template>
-  <div class="card p-2 mb-3">
-    <h5>
-      {{ info.title }}
-    </h5>
-    <p>
-      {{ info.originalTitle }}
-    </p>
+  <div class="ccard card">
+    <div class="card-back">
+      <h5>
+        {{ info.title }}
+      </h5>
+      <p>
+        {{ info.originalTitle }}
+      </p>
 
-    <img
-      v-if="languages.includes(info.lang)"
-      :src="buildLangPath(info.lang)"
-      class="flag"
-    />
-    <img v-else src="../assets/img/xx.png" alt="" class="flag" />
-    <p>
-      {{ Math.ceil(info.vote) / 2 }}
-    </p>
-    <p><font-awesome-icon :icon="starClass(n)" v-for="n in 5" /></p>
-    <img
-      :src="'https://image.tmdb.org/t/p/w342/' + info.img"
-      alt=""
-      class="w-25"
-    />
-    <p>
-      {{ info.desc }}
-    </p>
+      <img
+        v-if="languages.includes(info.lang)"
+        :src="buildLangPath(info.lang)"
+        class="flag"
+      />
+      <img v-else src="../assets/img/xx.png" alt="" class="flag" />
+      <p>
+        {{ Math.ceil(info.vote) / 2 }}
+      </p>
+      <p><font-awesome-icon :icon="starClass(n)" v-for="n in 5" /></p>
+
+      <p>
+        {{ info.desc }}
+      </p>
+    </div>
+    <div class="card-front">
+      <img :src="'https://image.tmdb.org/t/p/w780/' + info.img" alt="" />
+    </div>
   </div>
 </template>
-<style scoped>
+<style scoped lang="scss">
 .flag {
   width: 40px;
+}
+
+.ccard {
+  width: 300px;
+  height: 450px;
+  perspective: 1000px;
+  border: 1px solid red;
+  position: relative;
+
+  &:hover .card-front {
+    transform: rotateY(-180deg);
+  }
+  &:hover .card-back {
+    transform: rotateY(0deg);
+  }
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.9s ease;
+}
+
+.card-front {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.card-back {
+  transform: rotateY(180deg);
 }
 </style>
